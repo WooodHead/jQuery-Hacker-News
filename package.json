@@ -1,0 +1,26 @@
+{
+  "name": "jquery-hacker-news",
+  "version": "1.0.0",
+  "description": "This app is build using NodeJS (with ExpressJS Framework) and using bootstrap & jQuery on the front-end.The app uses hacker news API provided by Y Combinator Hacker News to show all the latest hacker news.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anirudhagarwal73/jQuery-Hacker-News.git"
+  },
+  "keywords": [
+    "Hacker",
+    "News"
+  ],
+  "author": "Anirudh Agarwal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anirudhagarwal73/jQuery-Hacker-News/issues"
+  },
+  "homepage": "https://github.com/anirudhagarwal73/jQuery-Hacker-News#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
