@@ -1,11 +1,9 @@
 var topStoriesID=[];
 var storiesCount=0;
 var storyNo=0;
+var pageno=0;
 Date.now = function() { return new Date().getTime(); }
-function loadPage(e,i){
-  e.preventDefault();
-  batchLoad(0,i-1);
-}
+
 function showModal(e,element){
   e.preventDefault();
   var url=element.children[0].innerHTML;
@@ -15,6 +13,14 @@ function showModal(e,element){
   $('#myModal').modal('show');
   return false;
 }
+
+function loadMore(e,element){
+  e.preventDefault();
+  $('#more').remove();
+  pageno++;
+  batchLoad(30*pageno,30*pageno+30);
+}
+
 function getTimeDiff(time){
   var now=Date.now()/1000;
   var diff=Math.ceil(now-time);
@@ -31,27 +37,28 @@ function getTimeDiff(time){
   }
 }
 
-function pagination(){
-  var htmladd='<center><ul class="pagination">';
-  for(var i=1;i<=Math.floor(storiesCount/30);i++)
-  {
-    if(i==1)
-      htmladd+='<li class="active"><a href="#" onclick="loadPage(event,'+i+')">'+i+'</a></li>';
-    else {
-      htmladd+='<li><a href="#" onclick="loadPage(event,'+i+')">'+i+'</a></li>';
-    }
-  }
-  htmladd+="</ul></center>";
+function pagination(type){
+  if(type==1)
+    var htmladd='<center id="more"><a href="#" onclick="loadMore(event,this)">More...</a></center>';
+  if(type==2)
+    var htmladd='<center id="more">No More...</center>';
   $('#page-content-wrapper').append(htmladd);
 }
-function batchLoad(s,p){
-  if(s==5 && p==0){
-    pagination();
+function batchLoad(s,end){
+  if(s>=storiesCount){
+    pagination(2);
+    return;
+  }
+  if(s>=end){
+    pagination(1);
     return;
   }
   var ids=[];
-  console.log(s*6+p*30+6);//s*6+p*30
-  for(i=s*6+p*30;i<s*6+p*30+6;i++)
+  console.log(s);
+  var e=s+6;
+  if(s+6>=storiesCount)
+    e=storiesCount;
+  for(i=s;i<e;i++)
     ids.push(topStoriesID[i]);
 
   $.post("/loadStories",{ids:ids},function(data, status){
@@ -99,10 +106,13 @@ function batchLoad(s,p){
         htmlAddition+='</tr>';
         htmlAddition+='<tr class="spacer"></tr>';
       });
-      if(p!=1 && s==0)
-        $('tbody').empty();
       $('tbody').append(htmlAddition);
-      batchLoad(s+1,p);
+      if(s==6){
+        $( "#overlay" ).fadeOut( "slow", function() {
+          // Animation complete.
+        });
+      }
+      batchLoad(s+6,end);
     }
   });
 }
@@ -118,7 +128,7 @@ $( document ).ready(function() {
       topStoriesID=JSON.parse(data);
       storiesCount=topStoriesID.length;
       console.log(storiesCount);
-      batchLoad(0,0);
+      batchLoad(0,30);
     }
   });
 });

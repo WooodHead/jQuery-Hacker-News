@@ -16,6 +16,10 @@ app.get('/', function (req, res) {
   res.sendFile( __dirname + "/views/index.html" );
 });
 
+app.get('/new', function (req, res) {
+  res.sendFile( __dirname + "/views/new.html" );
+});
+
 app.get('/topstories', function (req, res) {
   https.get('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty',function(response){
     response.setEncoding('utf8');
