@@ -1,5 +1,11 @@
-
-
+img{
+  max-width:60%;
+ }
+.myModel{
+  margin-left: 180px;
+  margin-right: 0px;
+  width: 975px;
+}
 .sno{
   float:left;
   font-size: 15px;
@@ -9,24 +15,29 @@
   float:left;
   font-size: 15px;
 }
+.sidebar-wrapper{
+  font-size: 15px;
+}
+.post-link:link {
+    color: #337ab7;
+    text-decoration: none;
+}
+.post-link:visited {
+    color: #337ab7;
+    text-decoration: none;
+}
+.post-link:hover {
+    color: #337ab7;
+    text-decoration: none;
+}
+.post-link:active {
+    color: #337ab7;
+    text-decoration: none;
+}
 
-#post-link:link {
-    color: #29e97e;
-    text-decoration: none;
+.modal-body{
+  padding:0;
 }
-#post-link:visited {
-    color: #29e97e;
-    text-decoration: none;
-}
-#post-link:hover {
-    color: #29e97e;
-    text-decoration: none;
-}
-#post-link:active {
-    color: #29e97e;
-    text-decoration: none;
-}
-
 .title{
   font-family: Verdana, Geneva, sans-serif;
   font-size: 15pt;

@@ -10,16 +10,28 @@
   <script src="../js/bootstrap.min.js"></script>
 </head>
 <body>
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog myModel">
+      <div class="modal-content">
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
   <div id="wrapper">
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
                 <a href="#">
-                    Start Bootstrap
+                  <img src="../images/logo.png">
                 </a>
             </li>
             <li>
-                <a href="#">Top Stories</a>
+                <a href="#" class="active">Top Stories</a>
             </li>
             <li>
                 <a href="#">New Stories</a>
@@ -30,13 +42,16 @@
         </ul>
     </div>
     <div id="page-content-wrapper">
-        <div class="container-fluid">
-          <div class="post-list">
-            <table border="0" cellpadding="0" cellspacing="0" class="itemlist">
-              <tbody>
-              </tbody>
-          </div>
+      <h2> Welcome to Hacker News</h2>
+      <a href="#menu-toggle" class="btn btn-default" data-spy="affix" id="menu-toggle"><span class="glyphicon glyphicon-list"></span> Menu</a>
+      <br>
+      <div class="container-fluid">
+        <div class="post-list table-responsive">
+          <table border="0" cellpadding="0" cellspacing="0" class="itemlist table">
+            <tbody>
+            </tbody>
         </div>
+      </div>
     </div>
   </div>
   <script src="../js/fetch.js"></script>
