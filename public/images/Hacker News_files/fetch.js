@@ -19,9 +19,9 @@ function batchLoad(s){
       var objJSON=JSON.parse(obj);
       var masterUrl=objJSON.url.split("/")[2];
       storyNo++;
-      htmlAddition+='<div class="post col-xs-12 col-sm-6 col-md-6">';
-      htmlAddition+='<div class="post-content">';
-      htmlAddition+='<div class="post-title">';
+      htmlAddition+='<div class="post col-xs-12 col-sm-6 col-md-8 col-md-offset-1">';
+      htmlAddition+='<div class="post-content"><div class="sno">'+storyNo+'.&nbsp;&nbsp;&nbsp;</div>';
+      htmlAddition+='<div class="content"><div class="post-title">';
       htmlAddition+='<a id="post-link" data-toggle="modal" href="#myModal">'+objJSON.title+'</a>';
       htmlAddition+='</div>';
       htmlAddition+='<div class="master-url">';
@@ -30,7 +30,7 @@ function batchLoad(s){
       htmlAddition+='<div class="post-author-name">';
       htmlAddition+=objJSON.score+" points <br>";
       htmlAddition+='by '+objJSON.by;
-      htmlAddition+='</div></div></div>';
+      htmlAddition+='</div></div></div></div>';
     });
     $('.post-list').append(htmlAddition);
     if(s==1)

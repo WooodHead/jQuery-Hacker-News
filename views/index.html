@@ -4,47 +4,37 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/sidebar.css">
   <link rel="stylesheet" href="../css/core.css">
   <script src="../js/jquery.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
 </head>
 <body>
-  <div id="overlay">
-    <center>
-     <img class="img-responsive" src="images/loader1.gif">
-   </center>
-  </div>
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
+  <div id="wrapper">
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    Start Bootstrap
+                </a>
+            </li>
+            <li>
+                <a href="#">Top Stories</a>
+            </li>
+            <li>
+                <a href="#">New Stories</a>
+            </li>
+            <li>
+                <a href="#">Best Stories</a>
+            </li>
+        </ul>
     </div>
-  </div>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#"><img src="../images/logo.png"></a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Top Stories</a></li>
-        <li><a href="#">New Stories</a></li>
-        <li><a href="#">Best Stories</a></li>
-      </ul>
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="post-list">
+          </div>
+        </div>
     </div>
-  </nav>
-  <div class="posts container-fluid">
-    <span class="post-list">
-    </span>
   </div>
   <script src="../js/fetch.js"></script>
 </body>
