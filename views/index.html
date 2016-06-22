@@ -36,13 +36,19 @@
                 </a>
             </li>
             <li>
-                <a href="/" class="active">Top Stories</a>
+                <a href="/" class="active" style="background-color: #fff;color:black;">Top Stories</a>
             </li>
             <li>
                 <a href="/new">New Stories</a>
             </li>
             <li>
                 <a href="/best">Best Stories</a>
+            </li>
+            <li>
+                <a href="/show">Show</a>
+            </li>
+            <li>
+                <a href="/jobs">Jobs</a>
             </li>
         </ul>
     </div>
@@ -60,5 +66,23 @@
     </div>
   </div>
   <script src="../js/fetch.js"></script>
+  <script>
+  $( document ).ready(function() {
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+
+    $.get("/topstories", function(data, status){
+      if(status=="success")
+      {
+        storiesID=JSON.parse(data);
+        storiesCount=storiesID.length;
+        console.log(storiesCount);
+        batchLoad(0,30);
+      }
+    });
+  });
+  </script>
 </body>
 </html>

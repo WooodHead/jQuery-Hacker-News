@@ -1,4 +1,4 @@
-var topStoriesID=[];
+var storiesID=[];
 var storiesCount=0;
 var storyNo=0;
 var pageno=0;
@@ -59,7 +59,7 @@ function batchLoad(s,end){
   if(s+6>=storiesCount)
     e=storiesCount;
   for(i=s;i<e;i++)
-    ids.push(topStoriesID[i]);
+    ids.push(storiesID[i]);
 
   $.post("/loadStories",{ids:ids},function(data, status){
     if(status=="success"){
@@ -108,27 +108,9 @@ function batchLoad(s,end){
       });
       $('tbody').append(htmlAddition);
       if(s==6){
-        $( "#overlay" ).fadeOut( "slow", function() {
-          // Animation complete.
-        });
+        $( "#overlay" ).fadeOut( "slow");
       }
       batchLoad(s+6,end);
     }
   });
 }
-$( document ).ready(function() {
-  $("#menu-toggle").click(function(e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
-  });
-
-  $.get("/topstories", function(data, status){
-    if(status=="success")
-    {
-      topStoriesID=JSON.parse(data);
-      storiesCount=topStoriesID.length;
-      console.log(storiesCount);
-      batchLoad(0,30);
-    }
-  });
-});

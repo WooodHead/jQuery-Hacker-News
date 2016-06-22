@@ -39,10 +39,10 @@
                 <a href="/">Top Stories</a>
             </li>
             <li>
-                <a href="/new" class="active" style="background-color: #fff;color:black;">New Stories</a>
+                <a href="/new">New Stories</a>
             </li>
             <li>
-                <a href="/best">Best Stories</a>
+                <a href="/best" class="active" style="background-color: #fff;color:black;">Best Stories</a>
             </li>
             <li>
                 <a href="/show">Show</a>
@@ -73,7 +73,7 @@
       $("#wrapper").toggleClass("toggled");
     });
 
-    $.get("/newstories", function(data, status){
+    $.get("/beststories", function(data, status){
       if(status=="success")
       {
         storiesID=JSON.parse(data);
