@@ -1,7 +1,4 @@
-img{
-  max-width:100%;
-  max-height:100%;
-}
+
 
 .sno{
   float:left;
@@ -30,6 +27,24 @@ img{
     text-decoration: none;
 }
 
-.post{
-  padding-top: 20px;
+.title{
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 15pt;
+
+}
+.subtext{
+  color: #828282;
+}
+.votelinks{
+  padding-right: 3px;
+}
+.spacer{
+  height:20px;
+}
+.votearrow{
+  width: 20px;
+  height: 15px;
+  border: 0px;
+  margin: 5px 0px 5px;
+  background: url("../images/uparrow.gif") no-repeat;
 }
