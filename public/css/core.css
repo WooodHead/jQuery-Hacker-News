@@ -1,0 +1,53 @@
+body{
+  padding-top: 70px;
+  background:#050f1a  ;
+}
+
+img{
+  max-width:100%;
+  max-height:100%;
+}
+
+.sno{
+  float:left;
+}
+
+.content{
+  float:left;
+}
+
+#post-link:link {
+    color: #29e97e;
+    text-decoration: none;
+}
+#post-link:visited {
+    color: #29e97e;
+    text-decoration: none;
+}
+#post-link:hover {
+    color: #29e97e;
+    text-decoration: none;
+}
+#post-link:active {
+    color: #29e97e;
+    text-decoration: none;
+}
+.posts{
+
+}
+.post{
+  background:black;
+  color:white;
+  padding-top: 20px;
+}
+
+
+#overlay{
+position:fixed;
+z-index:99999;
+top:0;
+left:0;
+bottom:0;
+right:0;
+background:#050f1a  ;
+}
