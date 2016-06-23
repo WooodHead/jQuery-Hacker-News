@@ -17,19 +17,19 @@ app.get('/', function (req, res) {
 });
 
 app.get('/new', function (req, res) {
-  res.sendFile( __dirname + "/views/new.html" );
+  res.sendFile( __dirname + "/views/index.html" );
 });
 
 app.get('/best', function (req, res) {
-  res.sendFile( __dirname + "/views/best.html" );
+  res.sendFile( __dirname + "/views/index.html" );
 });
 
 app.get('/show', function (req, res) {
-  res.sendFile( __dirname + "/views/show.html" );
+  res.sendFile( __dirname + "/views/index.html" );
 });
 
 app.get('/jobs', function (req, res) {
-  res.sendFile( __dirname + "/views/jobs.html" );
+  res.sendFile( __dirname + "/views/index.html" );
 });
 
 app.get('/topstories', function (req, res) {

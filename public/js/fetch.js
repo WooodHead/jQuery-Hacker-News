@@ -2,6 +2,7 @@ var storiesID=[];
 var storiesCount=0;
 var storyNo=0;
 var pageno=0;
+var getURL='topstories';
 Date.now = function() { return new Date().getTime(); }
 
 function showModal(e,element){
@@ -81,8 +82,7 @@ function batchLoad(s,end){
         htmlAddition+='<td class="title">';
         if(typeof objJSON.url!== 'undefined'){
           var masterUrl=objJSON.url.split("/")[2];
-          htmlAddition+='<a class="post-link" href="#" onclick="showModal(event,this)">';
-          htmlAddition+='<div style="display:none;">'+objJSON.url+'</div>';
+          htmlAddition+='<a class="post-link" href="'+objJSON.url+'" target="_blank">';
         }
         htmlAddition+=objJSON.title;
         if(typeof objJSON.url !== 'undefined'){
@@ -108,9 +108,76 @@ function batchLoad(s,end){
       });
       $('tbody').append(htmlAddition);
       if(s==6){
-        $( "#overlay" ).fadeOut( "slow");
+        $( "#overlay1" ).fadeOut( "slow");
       }
       batchLoad(s+6,end);
     }
   });
 }
+
+function loadPage(){
+  $( "#overlay1" ).fadeIn( "slow");
+  $.get(getURL, function(data, status){
+    if(status=="success")
+    {
+      storiesID=JSON.parse(data);
+      storiesCount=storiesID.length;
+      console.log(storiesCount);
+      batchLoad(0,30);
+    }
+  });
+}
+$( document ).ready(function() {
+  loadPage();
+  
+  $("#top").click(function(e) {
+    e.preventDefault();
+    $('#top').css({"background-color": "#fff", "color": "black"});
+    $('#content-table').empty();
+    $( '#more' ).remove();
+    getURL='/topstories';
+    storyNo=0;
+    loadPage();
+  });
+  $("#new").click(function(e) {
+    e.preventDefault();
+    $('#new').css({"background-color": "#fff", "color": "black"});
+    $('#content-table').empty();
+    $( '#more' ).remove();
+    getURL='/newstories';
+    storyNo=0;
+    loadPage();
+  });
+  $("#best").click(function(e) {
+    e.preventDefault();
+    $('#best').css({"background-color": "#fff", "color": "black"});
+    $('#content-table').empty();
+    $( '#more' ).remove();
+    getURL='/beststories';
+    storyNo=0;
+    loadPage();
+  });
+  $("#show").click(function(e) {
+    e.preventDefault();
+    $('#show').css({"background-color": "#fff", "color": "black"});
+    $('#content-table').empty();
+    $( '#more' ).remove();
+    getURL='/showstories';
+    storyNo=0;
+    loadPage();
+  });
+  $("#jobs").click(function(e) {
+    e.preventDefault();
+    $('#jobs').css({"background-color": "#fff", "color": "black"});
+    $('#content-table').empty();
+    $( '#more' ).remove();
+    getURL='/jobsstories';
+    storyNo=0;
+    loadPage();
+  });
+  $("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+    loadPage();
+  });
+});

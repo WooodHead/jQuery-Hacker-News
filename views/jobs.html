@@ -68,12 +68,22 @@
   <script src="../js/fetch.js"></script>
   <script>
   $( document ).ready(function() {
+    var pageURL = $(location).attr("href");
+    var getURL='topstories';
+    if(pageURL.search('/new')!=-1)
+      getURL='/newstories';
+    else if(pageURL.search('/best')!=-1)
+      getURL='/beststories';
+    else if(pageURL.search('/show')!=-1)
+        getURL='/showstories';
+    else if(pageURL.search('/jobs')!=-1)
+      getURL='/jobsstories';
     $("#menu-toggle").click(function(e) {
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
 
-    $.get("/jobsstories", function(data, status){
+    $.get(getURL, function(data, status){
       if(status=="success")
       {
         storiesID=JSON.parse(data);

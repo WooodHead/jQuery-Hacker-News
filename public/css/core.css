@@ -59,12 +59,22 @@
   margin: 5px 0px 5px;
   background: url("../images/uparrow.gif") no-repeat;
 }
-
+/*
 #overlay{
 position:fixed;
 z-index:99999;
 top:0;
 left:0;
+bottom:0;
+right:0;
+background:white  ;
+}*/
+
+#overlay1{
+position:fixed;
+z-index:99999;
+top:0;
+left:250px;
 bottom:0;
 right:0;
 background:white  ;
