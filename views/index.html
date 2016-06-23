@@ -19,21 +19,22 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="page-links" id="top">Top Stories</a>
+                <a href="#" id="top" onclick="load(1,event)">Top Stories</a>
             </li>
             <li>
-                <a href="#" class="page-links" id="new">New Stories</a>
+                <a href="#" id="new" onclick="load(1,event)">New Stories</a>
             </li>
             <li>
-                <a href="#" class="page-links" id="best">Best Stories</a>
+                <a href="#" id="best" onclick="load(1,event)">Best Stories</a>
             </li>
             <li>
-                <a href="#" class="page-links" id="show">Show</a>
+                <a href="#" id="show" onclick="load(1,event)">Show</a>
             </li>
             <li>
-                <a href="#" class="page-links" id="jobs">Jobs</a>
+                <a href="#" id="jobs" onclick="load(1,event)">Jobs</a>
             </li>
         </ul>
+        <a href="#menu-toggle" class="btn btn-default" data-spy="affix" id="menu-toggle1"><span class="glyphicon glyphicon-list"></span> Close</a>
     </div>
     <div id="page-content-wrapper">
       <div id="overlay1">
@@ -41,15 +42,13 @@
          <img class="img-responsive" style="margin-top:22%;" src="images/728.gif">
        </center>
       </div>
-      <h2> Welcome to Hacker News</h2>
+      <h2 id="heading"> Welcome to Hacker News</h2>
       <a href="#menu-toggle" class="btn btn-default" data-spy="affix" id="menu-toggle"><span class="glyphicon glyphicon-list"></span> Menu</a>
       <br>
-      <div class="container-fluid">
-        <div class="post-list table-responsive">
-          <table border="0" cellpadding="0" cellspacing="0" class="itemlist table">
-            <tbody id="content-table">
-            </tbody>
-        </div>
+      <div class="post-list">
+        <table border="0" cellpadding="0" cellspacing="0" class="itemlist table">
+          <tbody id="content-table">
+          </tbody>
       </div>
     </div>
   </div>
