@@ -10,23 +10,6 @@
   <script src="../js/bootstrap.min.js"></script>
 </head>
 <body>
-  <div id="overlay">
-    <center>
-     <img class="img-responsive" style="margin-top:22%;" src="images/728.gif">
-   </center>
-  </div>
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog myModel">
-      <div class="modal-content">
-        <div class="modal-body">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
   <div id="wrapper">
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
@@ -36,53 +19,36 @@
                 </a>
             </li>
             <li>
-                <a href="/">Top Stories</a>
+                <a href="#" id="top" onclick="load(1,event)">Top Stories</a>
             </li>
             <li>
-                <a href="/new" class="active" style="background-color: #fff;color:black;">New Stories</a>
+                <a href="#" id="new" onclick="load(1,event)">New Stories</a>
             </li>
             <li>
-                <a href="/best">Best Stories</a>
+                <a href="#" id="best" onclick="load(1,event)">Best Stories</a>
             </li>
             <li>
-                <a href="/show">Show</a>
+                <a href="#" id="show" onclick="load(1,event)">Show</a>
             </li>
             <li>
-                <a href="/jobs">Jobs</a>
+                <a href="#" id="jobs" onclick="load(1,event)">Jobs</a>
             </li>
         </ul>
+        <a href="#menu-toggle" class="btn btn-default" data-spy="affix" id="menu-toggle1"><span class="glyphicon glyphicon-list"></span> Close</a>
     </div>
     <div id="page-content-wrapper">
-      <h2> Welcome to Hacker News</h2>
+      <div id="overlay1">
+        <center>
+         <img class="img-responsive" style="margin-top:22%;" src="images/728.gif">
+       </center>
+      </div>
+      <h2 id="heading"> Welcome to Hacker News</h2>
       <a href="#menu-toggle" class="btn btn-default" data-spy="affix" id="menu-toggle"><span class="glyphicon glyphicon-list"></span> Menu</a>
       <br>
-      <div class="container-fluid">
-        <div class="post-list table-responsive">
-          <table border="0" cellpadding="0" cellspacing="0" class="itemlist table">
-            <tbody>
-            </tbody>
-        </div>
+      <div class="post-list container">
       </div>
     </div>
   </div>
-  <script src="../js/fetch.js"></script>
-  <script>
-  $( document ).ready(function() {
-    $("#menu-toggle").click(function(e) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-    });
-
-    $.get("/newstories", function(data, status){
-      if(status=="success")
-      {
-        storiesID=JSON.parse(data);
-        storiesCount=storiesID.length;
-        console.log(storiesCount);
-        batchLoad(0,30);
-      }
-    });
-  });
-  </script>
+  <script src="../js/fetch1.js"></script>
 </body>
 </html>

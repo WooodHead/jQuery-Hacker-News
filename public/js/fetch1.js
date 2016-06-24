@@ -90,7 +90,7 @@ function batchLoad(s,end){
         htmlAddition+=objJSON.descendants+' comments</div>';
         htmlAddition+='</div>';
       });
-      $('#post-list').append(htmlAddition);
+      $('.post-list').append(htmlAddition);
       if(s==5 && functionQueue.length==0){
         $( "#overlay1" ).fadeOut( "slow");
       }
@@ -109,13 +109,13 @@ function load(t,e){
   $('#show').css({"background-color": "", "color": "#999999"});
   $('#jobs').css({"background-color": "", "color": "#999999"});
   $('#'+e.target.id).css({"background-color": "#fff", "color": "black"});
+  $('#content-table').empty();
+  $( '#more' ).remove();
   $( "#overlay1" ).fadeIn( "slow");
   functionQueue.push(loadPage);
 }
 function loadPage(type,e){
   if(type===1){
-    $('#post-list').empty();
-    $( '#more' ).remove();
     getURL='/'+e.target.id+'stories';
     storyNo=0;
   }
